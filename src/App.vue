@@ -1,22 +1,43 @@
 <template>
   <div id="app">
-    <header id="nav">
-      <router-link exact to="/restaurants">Рестораны</router-link>
-      <router-link exact to="/delivery">Доставка</router-link>
-      <router-link exact to="/karaoke">Караоке</router-link>
-      <router-link exact to="/" class="logo"></router-link>
-      <router-link exact to="/about">О нас</router-link>
-      <router-link exact to="/news">Новости</router-link>
-      <router-link exact to="/contacts">Контакты</router-link>
+    <div
+      class="overlay"
+      :class="{'overlay-visible': styles.overlayVisible}"
+      @click="asideOpen()"
+    ></div>
+    <header class="header-nav">
+      <button
+        class="mobile-menu-btn"
+        v-if="$mq === 'md' || $mq === 'sm'"
+        @click="asideOpen()"
+      >
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav">
+        <router-link exact to="/restaurants" v-if="$mq != 'md' && $mq != 'sm'">Рестораны</router-link>
+        <router-link exact to="/delivery" v-if="$mq != 'md' && $mq != 'sm'">Доставка</router-link>
+        <router-link exact to="/karaoke" v-if="$mq != 'md' && $mq != 'sm'">Караоке</router-link>
+        <router-link exact to="/" class="logo"></router-link>
+        <router-link exact to="/about" v-if="$mq != 'md' && $mq != 'sm'">О нас</router-link>
+        <router-link exact to="/news" v-if="$mq != 'md' && $mq != 'sm'">Новости</router-link>
+        <router-link exact to="/contacts" v-if="$mq != 'md' && $mq != 'sm'">Контакты</router-link>
+      </nav>
+      <aside class="aside" :class="{'aside-visible': styles.asideVisible}" v-if="$mq === 'md' || $mq === 'sm'">
+        <router-link @click.native="asideOpen()" exact to="/restaurants">Рестораны</router-link>
+        <router-link @click.native="asideOpen()" exact to="/delivery">Доставка</router-link>
+        <router-link @click.native="asideOpen()" exact to="/karaoke">Караоке</router-link>
+        <router-link @click.native="asideOpen()" exact to="/about">О нас</router-link>
+        <router-link @click.native="asideOpen()" exact to="/news">Новости</router-link>
+        <router-link @click.native="asideOpen()" exact to="/contacts">Контакты</router-link>
+      </aside>
+      <button
+        class="mobile-menu-btn"
+        v-if="$mq === 'md' || $mq === 'sm'"
+        @click="asideOpen()"
+      >
+        <span></span><span></span><span></span>
+      </button>
     </header>
-    <aside class="nav" v-if="$mq != 'lg'">
-      <router-link exact to="/restaurants">Рестораны</router-link>
-      <router-link exact to="/delivery">Доставка</router-link>
-      <router-link exact to="/karaoke">Караоке</router-link>
-      <router-link exact to="/about">О нас</router-link>
-      <router-link exact to="/news">Новости</router-link>
-      <router-link exact to="/contacts">Контакты</router-link>
-    </aside>
     <router-view/>
   </div>
 </template>
@@ -28,7 +49,7 @@ import VueMQ from 'vue-mq'
 Vue.use(VueMQ, {
   breakpoints: { // default breakpoints - customize this
     sm: 576,
-    md: 768,
+    md: 769,
     lg: 1356,
     xl: Infinity,
   },
@@ -38,14 +59,20 @@ Vue.use(VueMQ, {
 export default {
   data() {
     return {
-      
+      styles: {
+        overflowHidden: false,
+        overlayVisible: false,
+        asideVisible: false
+      }
     }
   },
-  computed: {
-    
-  },
-  components: {
-    
+  methods: {
+    asideOpen() {
+      document.querySelector('body').classList.toggle('overflow-hidden')
+      this.styles.overflowHidden = !this.styles.overflowHidden
+      this.styles.overlayVisible = !this.styles.overlayVisible
+      this.styles.asideVisible = !this.styles.asideVisible
+    }
   }
 }
 </script>

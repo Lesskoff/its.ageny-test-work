@@ -1,22 +1,16 @@
-aside.nav
-  display: none
-
-#nav
-  +d-flex-all-center
+.header-nav
+  +d-flex-around
   font-size: $font-size-small
   height: 72px
   border-bottom: 1px solid $lines-color
 
-  .logo
-    width: 56px
-    height: 56px
-    background-color: $color-accent
-    padding: 0
+  .nav
+    +d-flex-all-center
 
   a
     padding: 0 20px
     text-decoration: none
-    transition: color .3s ease
+    +transition
     color: $font-color-main
     &:visited
       color: $font-color-main
@@ -25,6 +19,38 @@ aside.nav
     &.router-link-active
       color: $color-accent
 
+  .logo
+    display: block
+    width: 56px
+    height: 56px
+    background-color: $color-accent
+    padding: 0
+
+  
+
 @media screen and (max-width: 768px)
-  aside.nav
-  display: block
+  .header-nav
+    // .nav
+    //   .logo
+    //     background-color: black
+
+    .aside
+      position: fixed
+      top: 0
+      left: 0
+      +d-flex-column-left
+      width: 250px
+      height: 100vh
+      padding: 10px 0
+      background: #fff
+      box-shadow: 0 8px 10px -5px rgba(0,0,0,.2), 0 16px 24px 2px rgba(0,0,0,.14), 0 6px 30px 5px rgba(0,0,0,.12);
+      transform: translateX(-300px)
+      +transition
+      z-index: 5
+
+      &.aside-visible
+        transform: translateX(0px)
+
+      a
+        padding: 20px
+        font-size: $font-size-normal
