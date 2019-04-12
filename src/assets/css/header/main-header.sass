@@ -1,0 +1,29 @@
+aside.nav
+  display: none
+
+#nav
+  +d-flex-all-center
+  font-size: $font-size-small
+  height: 72px
+  border-bottom: 1px solid $lines-color
+
+  .logo
+    width: 56px
+    height: 56px
+    background-color: $color-accent
+    padding: 0
+
+  a
+    padding: 0 20px
+    text-decoration: none
+    transition: color .3s ease
+    &:visited
+      color: $font-color-main
+    &:hover
+      color: $color-accent
+    &.router-link-active
+      color: $color-accent
+
+@media screen and (max-width: 768px)
+  aside.nav
+  display: block
