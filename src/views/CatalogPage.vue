@@ -61,34 +61,29 @@ export default {
     categoriesList() {
       return this.$store.state.categories
     },
-    swiperPlugin() {
-      var navSwiper = new Swiper('.swiper-container', {
-        slidesPerView: 'auto',
-        // spaceBetween: 30,
-        freeMode: true,
-        // mousewheel: true,
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev'
-        },
-        breakpoints: {
-          768: {
-            direction: 'vertical',
-          }
-        },
-        on: {
-          reachBeginning () {
-            document.querySelector('.categories').classList.add('navSwiperIsBeginning')
-          },
-          reachEnd () {
-            document.querySelector('.categories').classList.add('navSwiperIsEnd')
-          },
-          fromEdge () {
-            document.querySelector('.categories').classList.remove('navSwiperIsEnd', 'navSwiperIsBeginning')
-          }
-        }
-      })
-    }
+    // swiperPlugin() {
+    //   var navSwiper = new Swiper('.swiper-container', {
+    //     slidesPerView: 'auto',
+    //     // spaceBetween: 30,
+    //     freeMode: true,
+    //     // mousewheel: true,
+    //     navigation: {
+    //       nextEl: '.swiper-button-next',
+    //       prevEl: '.swiper-button-prev'
+    //     },
+    //     on: {
+    //       reachBeginning () {
+    //         document.querySelector('.categories').classList.add('navSwiperIsBeginning')
+    //       },
+    //       reachEnd () {
+    //         document.querySelector('.categories').classList.add('navSwiperIsEnd')
+    //       },
+    //       fromEdge () {
+    //         document.querySelector('.categories').classList.remove('navSwiperIsEnd', 'navSwiperIsBeginning')
+    //       }
+    //     }
+    //   })
+    // }
   },
   methods: {
     filteredAsCategories (val) { // вычисляем количество блюд в данной категории
@@ -111,6 +106,35 @@ export default {
         return 0
       })
     }
+  },
+  mounted() {
+    var navSwiper = new Swiper('.swiper-container', {
+      slidesPerView: 'auto',
+      spaceBetween: 30,
+      freeMode: true,
+      // mousewheel: true,
+      // centeredSlides: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      },
+      breakpoints: {
+        768: {
+          direction: 'vertical'
+        }
+      },
+      on: {
+        reachBeginning () {
+          document.querySelector('.categories').classList.add('navSwiperIsBeginning')
+        },
+        reachEnd () {
+          document.querySelector('.categories').classList.add('navSwiperIsEnd')
+        },
+        fromEdge () {
+          document.querySelector('.categories').classList.remove('navSwiperIsEnd', 'navSwiperIsBeginning')
+        }
+      }
+    })
   },
   // watch: {
   //   navSwiperIsEnd() {
