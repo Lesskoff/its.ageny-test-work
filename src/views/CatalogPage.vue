@@ -47,7 +47,7 @@ import Catalog from '../components/Catalog'
 import Cart from '../components/Cart'
 import Modal from '../components/Modal'
 import Swiper from '../../node_modules/swiper/dist/js/swiper.min.js'
-import { truncateSync } from 'fs';
+// import { truncateSync } from 'fs';
 
 export default {
   data() {
@@ -69,41 +69,46 @@ export default {
         // mousewheel: true,
         navigation: {
           nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
+          prevEl: '.swiper-button-prev'
+        },
+        breakpoints: {
+          768: {
+            direction: 'vertical',
+          }
         },
         on: {
-          reachBeginning() {
+          reachBeginning () {
             document.querySelector('.categories').classList.add('navSwiperIsBeginning')
           },
-          reachEnd() {
+          reachEnd () {
             document.querySelector('.categories').classList.add('navSwiperIsEnd')
           },
-          fromEdge() {
+          fromEdge () {
             document.querySelector('.categories').classList.remove('navSwiperIsEnd', 'navSwiperIsBeginning')
           }
         }
-      });
+      })
     }
   },
   methods: {
-    filteredAsCategories(val) { // вычисляем количество блюд в данной категории
+    filteredAsCategories (val) { // вычисляем количество блюд в данной категории
       return this.$store.state.dishes.filter(item => {
         return item.category.indexOf(val) > -1
       })
     },
-    sortItems(sort) {
-      if (sort != 'price') sort = 'price'
+    sortItems (sort) {
+      if (sort !== 'price') sort = 'price'
       else sort = 'name'
 
       return this.$store.state.dishes.sort((a, b) => {
         if (a[sort] > b[sort]) {
-          return 1;
+          return 1
         }
         if (a[sort] < b[sort]) {
-          return -1;
+          return -1
         }
         // a должно быть равным b
-        return 0;
+        return 0
       })
     }
   },
