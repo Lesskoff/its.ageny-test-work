@@ -1,5 +1,5 @@
 <template>
-  <div class="cart">
+  <div class="cart" v-show="this.$store.state.areGoodsInTheCart">
     <h2>Корзина</h2>
     <div class="dish-in-cart" v-for="dish of filteredInCart" :key="dish.id">
       <button class="dish-in-cart__add dish__add-to-cart" @click="plusToCart(dish.id)">+</button>

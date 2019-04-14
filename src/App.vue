@@ -78,6 +78,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../node_modules/swiper/dist/css/swiper.min.css';
 @import './assets/css/style.sass';
 // #app {
 //   font-family: 'Avenir', Helvetica, Arial, sans-serif;

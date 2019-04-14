@@ -1,10 +1,10 @@
 <template>
-  <div class="catalog">
-    <h2>Каталог</h2>
+  <section class="catalog">
+    <h2>{{activeCategory}} {{categoriesAppend()}}</h2>
     <div class="dishes">
       <Dish :dishCategory="activeCategory"/>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -17,12 +17,32 @@ export default {
     activeCategory: String,
     default: ''
   },
+  data() {
+    return {
+      categoriesAppendTitle: 'asdf'
+    }
+  },
   components: {
     Dish,
   },
   computed: {
     categoriesList() {
       return this.$store.state.categories
+    }
+  },
+  methods: {
+    categoriesAppend() {
+      switch (this.activeCategory) {
+        case 'Популярные':
+          this.categoriesAppendTitle = 'продукты'
+          break;
+        case 'Детское':
+          this.categoriesAppendTitle = 'питание'
+          break;
+        default:
+          this.categoriesAppendTitle = ''
+      }
+      return this.categoriesAppendTitle
     }
   }
 }
