@@ -13,6 +13,15 @@
     left: 0
     right: 0
 
+select.sort-by
+  padding: 0 20px
+  border: none
+  font-family: inherit
+  font-size: $font-size-normal
+  cursor: pointer
+  &:focus
+    outline: none
+
 .mobile-menu-btn
   display: flex
   flex-direction: column
@@ -21,11 +30,33 @@
   border: none
   background: #fff
 
+  &:focus
+    outline: none
+
   span
     width: 24px
     height: 2px
     margin: 2.5px 0
     background: $font-color-secondary
+
+.categories-btn
+  position: fixed
+  display: block
+  bottom: 20px
+  right: 20px
+  width: 48px
+  height: 48px
+  border: none
+  border-radius: 50%
+  background-image: url('./assets/img/icons/categories-btn.svg')
+  background-repeat: no-repeat
+  background-position: center
+  background-color: $color-accent-darker
+  box-shadow: $box-shadow
+  z-index: 1
+
+  &:focus
+    outline: none
 
 .prev-btn, .next-btn
   position: absolute
@@ -55,3 +86,76 @@
 .next-btn
   right: 0
   transform: translateY(-50%) scale(-1)
+
+.dish-btn
+  width: 32px
+  height: 32px
+  padding: 0
+  margin: 0
+  background: none
+  border: none
+  border-radius: 50%
+  cursor: pointer
+  color: $color-accent
+  font-family: inherit
+  font-size: 25px
+  +transition
+
+  &:hover
+    background-color: $lines-color
+
+  &:focus
+    outline: none
+
+.cart-btn
+  position: relative
+  padding: 0
+  background: none
+  border: none
+  cursor: pointer
+  color: $font-color-main
+  font-family: inherit
+  font-size: 13px
+  font-weight: 200
+  +transition
+
+  &:focus
+    outline: none
+
+.checkout-btn
+  position: relative
+  padding: 20px
+  width: 100%
+  background: $color-accent-darker
+  border: none
+  cursor: pointer
+  color: #fff
+  font-family: inherit
+  font-size: 12px
+  font-weight: 500
+  text-align: center
+  text-transform: uppercase
+  +transition
+
+.remove-btn
+  width: 30px
+  height: 30px
+  cursor: pointer
+  border: none
+  border-radius: 3px
+  background-image: url('./assets/img/icons/remove-basket.svg')
+  background-repeat: no-repeat
+  background-position: center
+  background-color: transparent
+  +transition
+  &:hover
+    background-color: $lines-color
+  &:focus
+    outline: none
+
+.addr-icon
+  width: 15px
+  height: 15px
+  background-image: url('./assets/img/icons/location.svg')
+  background-repeat: no-repeat
+  background-position: center

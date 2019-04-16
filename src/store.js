@@ -8,12 +8,19 @@ export default new Vuex.Store({
     areGoodsInTheCart: false, // меняем на true, если есть хотя бы один товар в корзине (от этого зависит отображение корзины)
     priceInCart: 0, // счетчик общей суммы в корзине
     activeModalDishId: null, // id активного товара в модальном окне
+    styles: {
+      overlayVisible: false,
+      asideVisible: false,
+      categoriesWrapperMobileVisible: false,
+      modalVisible: false
+    },
     dishes: [
       {
         id: 0,
         name: 'Плов Чайханский',
         description: 'Камчатский краб, авокадо, свежие овощи и цитрусовый, Камчатский краб, авокадо, свежие овощи и цитрусовый',
         src: require('./assets/img/catalog/plov-chaihanskiy.png'),
+        srcLarge: require('./assets/img/catalog/steik-large.png'),
         weight: 250, // вес в граммах
         price: 246, // цена в рублях
         category: ['Горячее'],
@@ -24,6 +31,7 @@ export default new Vuex.Store({
         name: 'Стейк',
         description: 'Камчатский краб, авокадо, свежие овощи и цитрусовый, Камчатский краб, авокадо, свежие овощи и цитрусовый',
         src: require('./assets/img/catalog/steik.png'),
+        srcLarge: require('./assets/img/catalog/steik-large.png'),
         weight: 336, // вес в граммах
         price: 246, // цена в рублях
         category: ['Гриль'],
@@ -34,6 +42,7 @@ export default new Vuex.Store({
         name: 'Шашлык',
         description: 'Камчатский краб, авокадо, свежие овощи и цитрусовый, Камчатский краб, авокадо, свежие овощи и цитрусовый',
         src: require('./assets/img/catalog/shashlik.png'),
+        srcLarge: require('./assets/img/catalog/steik-large.png'),
         weight: 250, // вес в граммах
         price: 656, // цена в рублях
         category: ['Гриль', 'Популярные'],
@@ -44,6 +53,7 @@ export default new Vuex.Store({
         name: 'Судак',
         description: 'Камчатский краб, авокадо, свежие овощи и цитрусовый, Камчатский краб, авокадо, свежие овощи и цитрусовый',
         src: require('./assets/img/catalog/sudak.png'),
+        srcLarge: require('./assets/img/catalog/steik-large.png'),
         weight: 250, // вес в граммах
         price: 226, // цена в рублях
         category: ['', 'Популярные'],
@@ -54,6 +64,7 @@ export default new Vuex.Store({
         name: 'Манты',
         description: 'Камчатский краб, авокадо, свежие овощи и цитрусовый, Камчатский краб, авокадо, свежие овощи и цитрусовый',
         src: require('./assets/img/catalog/manti.png'),
+        srcLarge: require('./assets/img/catalog/steik-large.png'),
         weight: 300, // вес в граммах
         price: 299, // цена в рублях
         category: ['Выпечка'],
@@ -64,6 +75,7 @@ export default new Vuex.Store({
         name: 'Шаверма',
         description: 'Камчатский краб, авокадо, свежие овощи и цитрусовый, Камчатский краб, авокадо, свежие овощи и цитрусовый',
         src: require('./assets/img/catalog/shaverma.png'),
+        srcLarge: require('./assets/img/catalog/steik-large.png'),
         weight: 300, // вес в граммах
         price: 180, // цена в рублях
         category: [''],
@@ -74,6 +86,7 @@ export default new Vuex.Store({
         name: 'Бешбармак',
         description: 'Камчатский краб, авокадо, свежие овощи и цитрусовый, Камчатский краб, авокадо, свежие овощи и цитрусовый',
         src: require('./assets/img/catalog/beshbarmak.png'),
+        srcLarge: require('./assets/img/catalog/steik-large.png'),
         weight: 220, // вес в граммах
         price: 446, // цена в рублях
         category: ['', 'Популярные'],
@@ -84,9 +97,10 @@ export default new Vuex.Store({
         name: 'Ковурма',
         description: 'Камчатский краб, авокадо, свежие овощи и цитрусовый, Камчатский краб, авокадо, свежие овощи и цитрусовый',
         src: require('./assets/img/catalog/kovurma.png'),
+        srcLarge: require('./assets/img/catalog/steik-large.png'),
         weight: 250, // вес в граммах
         price: 246, // цена в рублях
-        category: ['Гарниры'],
+        category: ['Гарниры', 'Популярные'],
         inCart: 0
       }
     ],
@@ -120,16 +134,24 @@ export default new Vuex.Store({
       }
     },
     plusToCart (context, playload) {
-      context.state.dishes[playload].inCart++ // добавляем количества товару, по которму кликнули "добавить"
-      if (this.state.areGoodsInTheCart === false) this.state.areGoodsInTheCart = true
-      this.state.priceInCart += context.state.dishes[playload].price // добавляем стоимость товара к общей стоимости в корзине
+      for (let dish of this.state.dishes) { // добавляем количества товару, по которму кликнули "добавить"
+        if (dish.id === playload) {
+          dish.inCart++
+          this.state.priceInCart += dish.price // добавляем стоимость товара к общей стоимости в корзине
+        }
+      }
+      if (this.state.areGoodsInTheCart === false) this.state.areGoodsInTheCart = true // показываем корзину по клику на "добавить"
     },
     minusFromCart (context, playload) {
-      if (context.state.dishes[playload].inCart > 0) { // убираем количества товару, по которму кликнули "убрать", только если количество не меньше нуля
-        context.state.dishes[playload].inCart--
+      for (let dish of this.state.dishes) { // убираем количества товару, по которму кликнули "убрать", только если количество не меньше нуля
+        if (dish.inCart > 0) {
+          if (dish.id === playload) {
+            dish.inCart--
+            this.state.priceInCart -= dish.price // убавляем стоимость товара к общей стоимости в корзине
+          }
+        }
       }
-      if (this.state.areGoodsInTheCart === true && context.state.dishes[playload].inCart === 0) this.state.areGoodsInTheCart = false
-      this.state.priceInCart -= context.state.dishes[playload].price // убавляем стоимость товара к общей стоимости в корзине
+      if (this.state.priceInCart === 0) this.state.areGoodsInTheCart = false // если сумма в корзине равна нулю, то скрываем корзину
     },
     removeFromCart () {
       for (let dish of this.state.dishes) {
@@ -137,7 +159,16 @@ export default new Vuex.Store({
       }
       this.state.areGoodsInTheCart = false
       this.state.priceInCart = 0
-    }
+    },
     // / работа с добавлением / убавлением из корзины
+    // закрытие модальных окон
+    closeModalsAndMenu () {
+      this.state.styles.overlayVisible = false
+      this.state.styles.asideVisible = false
+      this.state.styles.categoriesWrapperMobileVisible = false
+      this.state.styles.modalVisible = false
+      this.state.activeModalDishId = null
+      document.querySelector('body').classList.remove('overflow-hidden')
+    }
   }
 })

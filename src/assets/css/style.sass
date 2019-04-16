@@ -5,7 +5,8 @@
 @import './elements'
 @import './header/main-header'
 @import './header/catalog-header'
-@import './header/catalog-page'
+@import './components/catalog'
+@import './components/modal'
 
 body
   font-family: $font-family-normal
@@ -13,14 +14,29 @@ body
   font-size: $font-size-normal
   font-weight: 500
 
+#app
+  overflow: hidden
+
+h1, h2, .title-1, .title-2, .title-3
+  font-weight: 700
+
+h1, .title-1
+  font-size: 32px
+h2, .title-2
+  font-size: 24px
+h3, .title-3
+  font-size: $font-size-normal
+
+section
+  padding-top: 60px
 
 .overflow-hidden
   overflow: hidden
-  padding-right: 17px
-  
-@media screen and (max-width: 1024px)
-  .overflow-hidden
-    padding-right: 0
+  // padding-right: 17px
+
+.blur
+  +transition
+  filter: blur(10px)
 
 .container-fluid
   width: 100%
@@ -28,3 +44,14 @@ body
   padding-right: 20px
   margin-left: auto
   margin-right: auto
+
+.row
+  +d-flex-center
+
+@media screen and (max-width: 1024px)
+  .overflow-hidden
+    padding-right: 0
+
+@media screen and (max-width: 768px)
+  main
+    padding-top: 73px

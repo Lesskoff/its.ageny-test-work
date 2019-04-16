@@ -1,18 +1,24 @@
 <template>
-  <div class="">
+  <div class="dishes">
     <div class="dish" v-for="dish of filteredAsCategories" :key="dish.id">
-      <button class="dish__add-to-cart" @click="plusToCart(dish.id)">+</button>
-      <button class="dish__remove-from-cart" @click="minusFromCart(dish.id)" v-if="dish.inCart > 0">-</button>
+      <div class="dish__adding-to-cart-controllers">
+        <button class="dish-btn dish__remove-from-cart" @click="minusFromCart(dish.id)" v-if="dish.inCart > 0"><span>-</span></button>
+        <span class="dish__quantity" :class="{'dish__quantity__visible': dish.inCart > 0}">{{dish.inCart}}</span>
+        <button class="dish-btn dish__add-to-cart" @click="plusToCart(dish.id)"><span>+</span></button>
+      </div>
       <img :src="dish.src" :alt="dish.name" @click="addToCart(dish.id)">
       <div class="dish__info">
-        <p class="dish__name">Название - {{dish.name}}</p>
-        <p class="dish__weight">Вес - {{dish.weight}}</p>
-        <p class="dish__price">Цена - {{dish.price}}</p>
+        <div class="dish__info-heading">
+          <div>
+            <span class="title-3 dish__name">{{dish.name}}</span>
+            <span class="dish__weight">{{dish.weight}} г</span>
+          </div>
+          <span class="title-3 dish__price">{{dish.price}} ₽</span>
+        </div>
         <p class="dish__desctiption">
-          Описание - {{dish.description}}
-          <button class="btn" @click="setActiveModalDishId(dish.id)">Подробнее</button>
+          {{dish.description | cutText(40, '... ') }}
+          <button class="dish__btn" @click="openModal(dish.id)">подробнее</button>
         </p>
-        <p class="dish__quantity">Количество товара в корзине - {{dish.inCart}}</p>
       </div>
     </div>
   </div>
@@ -42,8 +48,12 @@ export default {
     }
   },
   methods: {
-    setActiveModalDishId(id) {
+    openModal(id) {
       this.$store.state.activeModalDishId = id
+
+      this.$store.state.styles.overlayVisible = true
+      this.$store.state.styles.modalVisible = true
+      document.querySelector('body').classList.add('overflow-hidden')
     },
     addToCart(val) {
       this.$store.dispatch('addToCart', val);
@@ -56,6 +66,11 @@ export default {
       this.$store.dispatch('minusFromCart', val);
     }
     // / желательно объединить эти функции в миксины или вроде того, потому как они повторяются в компонентах Cart и Dish
+  },
+  filters: {
+    cutText(text, length, camp) {
+        return text.length > length ? text.slice(0, length) + camp : text;
+    }
   }
 }
 </script>

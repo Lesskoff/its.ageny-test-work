@@ -1,89 +1,65 @@
 <template>
-  <main id="catalog-page">
+  <div id="catalog-page">
     <div class="catalog-side">
-      <div class="categories-wrapper">
-        <nav class="categories swiper-container navSwiperIsBeginning">
-          <ul class="categories-switcher swiper-wrapper">
-            <li 
-              v-for="(category, i) of categoriesList" 
-              :key="i" 
-              @click="activeCategory = category"
-              class="swiper-slide"
-              :class="{'active': activeCategory === category}"
-            >
-              {{category}}
-              <span class="categories-quantity-of-dishes">
-                {{filteredAsCategories(category).length}}
-              </span>
-            </li>
-          </ul>
-          <!-- If we need navigation buttons -->
-          <div class="prev-btn swiper-button-prev"><span></span><span></span></div>
-          <div class="next-btn swiper-button-next"><span></span><span></span></div>
+      <div class="catalog-wrapper">
+        <button
+          class="categories-btn"
+          v-if="$mq === 'md' || $mq === 'sm'"
+          @click="catalogMenuOpen()"
+        ></button>
+        <div class="categories-wrapper" :class="{'categories-wrapper-mobile-visible': this.$store.state.styles.categoriesWrapperMobileVisible, 'blur': this.$store.state.styles.modalVisible}">
+          <nav class="categories swiper-container navSwiperIsBeginning">
+            <ul class="categories-switcher swiper-wrapper">
+              <li 
+                v-for="(category, i) of categoriesList" 
+                :key="i" 
+                @click="activeCategory = category, closeModalsAndMenu()"
+                class="swiper-slide"
+                :class="{'active': activeCategory === category}"
+              >
+                {{category}}
+                <span class="categories-quantity-of-dishes">
+                  {{filteredAsCategories(category).length}}
+                </span>
+              </li>
+            </ul>
+            <!-- If we need navigation buttons -->
+            <div class="prev-btn swiper-button-prev" v-if="$mq !== 'md'&& $mq !== 'sm'"><span></span><span></span></div>
+            <div class="next-btn swiper-button-next" v-if="$mq !== 'md'&& $mq !== 'sm'"><span></span><span></span></div>
 
-          <!-- <div class="swiper-pagination"></div> -->
-        </nav>
+            <!-- <div class="swiper-pagination"></div> -->
+          </nav>
+        </div>
+        <Catalog :activeCategory="activeCategory" :class="{'blur': this.$store.state.styles.overlayVisible}" />
       </div>
-      <select class="sort-by" v-model="currentSort" @change="sortItems(currentSort)">
-        <option value="price">По цене</option>
-        <option value="name">По названию</option>
-      </select>
-      <Catalog :activeCategory="activeCategory" />
     </div>
-    <div class="cart-side">
-      <div class="cart-empty">
-
-      </div>
+    <div class="cart-side" :class="{'blur': this.$store.state.styles.overlayVisible}">
       <Cart />
     </div>
-    <div class="modal" v-show="activeModalDishId >= 0">
+    <!-- <div class="modal" :class="{'modal-visible': this.$store.state.activeModalDishId >= 0 && this.$store.state.activeModalDishId != null}">
       <Modal :dishId="this.$store.state.activeModalDishId"/>
-    </div>
-  </main>
+    </div> -->
+  </div>
 </template>
 
 <script>
 import Catalog from '../components/Catalog'
 import Cart from '../components/Cart'
-import Modal from '../components/Modal'
+// import Modal from '../components/Modal'
 import Swiper from '../../node_modules/swiper/dist/js/swiper.min.js'
 // import { truncateSync } from 'fs';
 
 export default {
   data() {
     return {
-      currentSort: 'price',
       activeCategory: 'Популярные',
-      activeModalDishId: this.$store.state.activeModalDishId
+      // activeModalDishId: this.$store.state.activeModalDishId
     }
   },
   computed: {
     categoriesList() {
       return this.$store.state.categories
     },
-    // swiperPlugin() {
-    //   var navSwiper = new Swiper('.swiper-container', {
-    //     slidesPerView: 'auto',
-    //     // spaceBetween: 30,
-    //     freeMode: true,
-    //     // mousewheel: true,
-    //     navigation: {
-    //       nextEl: '.swiper-button-next',
-    //       prevEl: '.swiper-button-prev'
-    //     },
-    //     on: {
-    //       reachBeginning () {
-    //         document.querySelector('.categories').classList.add('navSwiperIsBeginning')
-    //       },
-    //       reachEnd () {
-    //         document.querySelector('.categories').classList.add('navSwiperIsEnd')
-    //       },
-    //       fromEdge () {
-    //         document.querySelector('.categories').classList.remove('navSwiperIsEnd', 'navSwiperIsBeginning')
-    //       }
-    //     }
-    //   })
-    // }
   },
   methods: {
     filteredAsCategories (val) { // вычисляем количество блюд в данной категории
@@ -91,20 +67,13 @@ export default {
         return item.category.indexOf(val) > -1
       })
     },
-    sortItems (sort) {
-      if (sort !== 'price') sort = 'price'
-      else sort = 'name'
-
-      return this.$store.state.dishes.sort((a, b) => {
-        if (a[sort] > b[sort]) {
-          return 1
-        }
-        if (a[sort] < b[sort]) {
-          return -1
-        }
-        // a должно быть равным b
-        return 0
-      })
+    catalogMenuOpen() {
+      document.querySelector('body').classList.add('overflow-hidden')
+      this.$store.state.styles.overlayVisible = true
+      this.$store.state.styles.categoriesWrapperMobileVisible = true
+    },
+    closeModalsAndMenu() {
+      this.$store.dispatch('closeModalsAndMenu')
     }
   },
   mounted() {
@@ -112,6 +81,8 @@ export default {
       slidesPerView: 'auto',
       spaceBetween: 30,
       freeMode: true,
+      slidesOffsetBefore: 20,
+      slidesOffsetAfter: 60,
       // mousewheel: true,
       // centeredSlides: true,
       navigation: {
@@ -120,7 +91,9 @@ export default {
       },
       breakpoints: {
         768: {
-          direction: 'vertical'
+          direction: 'vertical',
+          navigation: false,
+          // slidesOffsetAfter: 100,
         }
       },
       on: {
@@ -136,20 +109,10 @@ export default {
       }
     })
   },
-  // watch: {
-  //   navSwiperIsEnd() {
-  //     console.log('this.navSwiperIsEnd')
-  //     console.log(this.navSwiperIsEnd)
-  //   },
-  //   navSwiperIsBeginning() {
-  //     console.log('this.navSwiperIsBeginning')
-  //     console.log(this.navSwiperIsBeginning)
-  //   }
-  // },
   components: {
     Catalog,
     Cart,
-    Modal
+    // Modal
   }
 }
 </script>

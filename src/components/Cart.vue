@@ -1,20 +1,54 @@
 <template>
-  <div class="cart" v-show="this.$store.state.areGoodsInTheCart">
-    <h2>Корзина</h2>
-    <div class="dish-in-cart" v-for="dish of filteredInCart" :key="dish.id">
-      <button class="dish-in-cart__add dish__add-to-cart" @click="plusToCart(dish.id)">+</button>
-      <button class="dish__remove-from-cart" @click="minusFromCart(dish.id)" v-if="dish.inCart > 0">-</button>
-      <div class="dish-in-cart__info dish__info">
-        <p class="dish-in-cart__name dish__name">Название - {{dish.name}}</p>
-        <p class="dish-in-cart__weight dish__weight">Вес - {{dish.weight}}</p>
-        <p class="dish-in-cart__quantity dish__quantity">Количество товара в корзине - {{dish.inCart}}</p>
-        <p class="dish-in-cart__price dish__price">Цена - {{dish.price}}</p>
+  <div class="cart">
+    <h2 class="title-2">
+      <span :class="{'cart-text-left': this.$store.state.areGoodsInTheCart}">Мой заказ</span>
+    </h2>
+    <div class="cart-empty" :class="{'cart-empty-invisible': this.$store.state.areGoodsInTheCart}">
+      <div class="cart-empty__img"></div>
+      <p>Пока пусто ;)</p>
+    </div>
+    <div class="cart-with-dishes" :class="{'cart-with-dishes-visible': this.$store.state.areGoodsInTheCart}">
+      <button class="remove-btn cart__remove-all" @click="removeFromCart()"></button>
+      <div class="dish-in-cart-list">
+        <div class="dish-in-cart" v-for="dish of filteredInCart" :key="dish.id">
+          <!-- <div class="dish-in-cart__info dish__info"> -->
+            <div class="dish-in-cart__name-weight">
+              <span class="dish-in-cart__name">{{dish.name}}</span>
+              <span class="dish-in-cart__weight">{{dish.weight}} г</span>
+            </div>
+            <div class="dish-in-cart__controllers-price">
+              <div class="dish-in-cart__controllers">
+                <button class="cart-btn dish-in-cart__add" @click="plusToCart(dish.id)">&gt;</button>
+                <span class="dish-in-cart__quantity"><span>✖</span>{{dish.inCart}}</span>
+                <button class="cart-btn dish-in-cart__remove" @click="minusFromCart(dish.id)" v-if="dish.inCart > 0">&lt;</button>
+              </div>
+              <span class="dish-in-cart__price">{{dish.price}} ₽</span>
+            </div>
+          <!-- </div> -->
+        </div>
+      </div>
+      <div class="cart__total">
+        <div class="row">
+          <div class="cart__address">
+            <span class="addr-icon"></span>
+            <span>Московское шоссе, 13ВР</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="cart__quantity">
+            <p>{{filteredInCart.length}}</p>
+            <span>Блюда</span>
+          </div>
+          <div class="cart__sum-price">
+            <p>{{$store.state.priceInCart}} ₽</p>
+            <span>Итого</span>
+          </div>
+        </div>
+        <div class="row checkout-btn-row">
+          <button class="btn checkout-btn">Оформить заказ</button>
+        </div>
       </div>
     </div>
-    <hr>
-    <p class="cart__quantity">Количество блюд в корзине - {{filteredInCart.length}}</p>
-    <p class="cart__sum-price">Итого - {{$store.state.priceInCart}}</p>
-    <p class="cart__remove-all" @click="removeFromCart()">Удалить все</p>
   </div>
 </template>
 

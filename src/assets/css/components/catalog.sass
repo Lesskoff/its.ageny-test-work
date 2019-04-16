@@ -1,0 +1,364 @@
+#catalog-page
+  position: relative
+  display: flex
+  justify-content: space-between
+  align-items: flex-start
+  min-height: 100vh
+  overflow: hidden
+  
+.catalog-side
+  width: 80%
+  margin-bottom: 100px
+  box-shadow: inset -1px 0 0 0px $lines-color
+
+  .catalog-wrapper
+    padding-left: 150px
+    padding-right: 20px
+
+    .catalog__header
+      +d-flex-between
+      margin-bottom: 40px
+      padding-bottom: 20px
+
+    .dishes
+      display: grid
+      grid-template-columns: 1fr 1fr 1fr 1fr
+      grid-column-gap: 25px
+      grid-row-gap: 60px
+
+      .dish
+        position: relative
+
+        &:hover
+          .dish__info-heading
+            border-bottom: 1px solid $color-accent !important
+            box-shadow: 0 1px $color-accent
+
+        .dish__adding-to-cart-controllers
+          display: flex
+          justify-content: flex-end
+          align-items: center
+          height: 34px
+
+          .dish__add-to-cart, .dish__remove-from-cart, dish__quantity
+            position: relative
+
+          .dish__add-to-cart
+            span
+              position: relative
+              top: -2px
+
+          .dish__remove-from-cart
+            font-size: 30px
+            color: $font-color-main
+
+            span
+              position: relative
+              top: -3px
+
+          .dish__quantity
+            display: block
+            min-width: 20px
+            text-align: center
+            color: $color-accent
+            font-size: 12px
+            opacity: 0
+            visibility: hidden
+            +transition
+
+            &.dish__quantity__visible
+              opacity: 1
+              visibility: visible
+        
+        img
+          display: block
+          margin: auto
+          max-width: 100%
+          cursor: pointer
+
+        .dish__info
+          padding: 0 20px
+
+          .dish__info-heading
+            +d-flex-between
+            height: 48px
+            border-bottom: 1px solid #999
+            +transition
+
+            .dish__name
+              margin-right: 7px
+
+            .dish__weight
+              color: $font-color-light
+
+            .dish__weight, .dish__price
+              font-size: 16px
+
+          .dish__desctiption
+            padding-top: 16px
+            font-size: $font-size-small
+            font-weight: normal
+
+          .dish__btn
+            padding: 0
+            cursor: pointer
+            background: none
+            border: none
+            font-weight: bold
+            font-size: $font-size-small
+            color: $font-color-main
+
+            &:focus
+              outline: none
+
+.cart-side
+  position: absolute
+  top: 0
+  right: 0
+  width: 20%
+  height: 100%
+  min-height: 100vh
+  background: #fff
+  overflow: hidden
+
+  .cart
+    padding: 40px 30px 0
+    height: calc(100vh - 110px)
+
+    .title-2
+      text-align: center
+
+      span
+        position: relative
+        display: block
+        width: max-content
+        left: 50%
+        transform: translateX(-50%)
+        +transition
+
+        &.cart-text-left
+          left: 0
+          transform: translateX(0)
+
+    .cart-with-dishes
+      position: absolute
+      +d-flex-column-left
+      justify-content: space-between;
+      width: calc(100% - 60px)
+      min-height: 70vh
+      +transition
+      transform: translateX(120%)
+      margin-top: 20px
+      margin-left: -30px;
+      margin-right: -30px;
+      padding-left: 30px;
+      padding-right: 30px;
+      // background: #fff
+
+      &.cart-with-dishes-visible
+        transform: translateX(0)
+
+      .cart__remove-all
+        position: absolute
+        top: -45px
+        right: 25px
+
+      .dish-in-cart
+        +d-flex-between
+        height: 57px
+
+        .dish-in-cart__name
+          font-size: 16px
+          margin-right: 15px
+        
+        .dish-in-cart__weight
+          color: $font-color-light
+
+        .dish-in-cart__weight, .dish-in-cart__quantity, .dish-in-cart__price
+          font-size: 14px
+
+        .dish-in-cart__controllers-price
+          +d-flex-between
+          width: 100px
+          height: 100%
+
+          .dish-in-cart__controllers
+            +d-flex-column-left
+            width: 32px
+            height: 100%
+            +transition
+
+            &:hover
+              background: $lines-color
+              .dish-in-cart__quantity span
+                opacity: 0
+
+            .dish-in-cart__add, .dish-in-cart__remove
+              left: -3px
+              transform: rotate(-90deg) scale(1, 2)
+            
+            .dish-in-cart__add
+              top: 5px
+            .dish-in-cart__remove
+              bottom: -10px
+
+            .dish-in-cart__quantity
+              cursor: default
+              position: relative
+              top: 7px
+              left: 12px
+
+              span
+                position: absolute
+                transform: translate(-11px, 2px)
+                font-size: 10px
+                +transition
+
+          .dish-in-cart__price
+            margin-left: 15px
+
+    .cart__total
+      border-top: 1px solid $lines-color
+      margin-left: -30px
+      margin-right: -30px
+      padding-left: 30px
+      padding-right: 30px
+
+      .row
+        justify-content: space-between
+        margin-left: -30px
+        margin-right: -30px
+        padding-left: 30px
+        padding-right: 30px
+        &:first-child
+          border-bottom: 1px solid $lines-color
+
+
+      .cart__address
+        +d-flex-start
+        width: 100%
+        height: 48px
+        font-size: 15px
+
+        .addr-icon
+          margin-right: 10px
+      
+      .cart__quantity, .cart__sum-price
+        width: 50%
+        padding-top: 20px
+        padding-bottom: 20px
+        p
+          font-size: 22px
+        span
+          font-size: 14px
+          color: $font-color-light
+      
+      .cart__sum-price
+        padding-left: 10px
+        border-left: 1px solid $lines-color
+
+      .checkout-btn-row
+        padding-left: 0
+        padding-right: 0
+
+  .cart-empty
+    position: absolute
+    left: 0
+    width: 100%
+    margin-top: 50px
+    // background: #fff
+    +transition
+
+    &.cart-empty-invisible
+      opacity: 0
+    
+    .cart-empty__img
+      width: 100%
+      min-height: 200px
+      background-image: url('./assets/img/icons/empty-cart.svg')
+      background-repeat: no-repeat
+      background-position: center
+      opacity: .6
+    p
+      text-align: center
+      color: #a7a7a7
+
+  // .dish__add-to-cart, .dish__remove-from-cart, .dish__quantity
+  //   position: absolute
+  //   top: 0
+  //   right: 0
+  // .dish__remove-from-cart
+  //   right: 50px
+  //   color: $font-color-main
+    
+  // .dish__quantity
+  //   right: 25px
+  //   font-size: 12px
+  //   font-weight: bold
+
+// @media screen and (min-width: 2048px)
+//   .catalog-side
+//     .catalog-wrapper
+//       .catalog__header
+//         .dishes
+//           grid-template-columns: 1fr 1fr 1fr 1fr
+
+@media screen and (max-width: 2048px)
+  .catalog-side
+    width: 70%
+    
+    .catalog-wrapper
+      .dishes
+        grid-template-columns: 1fr 1fr 1fr
+
+        .catalog-side
+  
+  .cart-side
+    width: 30%
+
+@media screen and (max-width: 1356px)
+  .catalog-side
+    .catalog-wrapper
+      padding-left: 20px
+
+      .dishes
+        grid-template-columns: 1fr 1fr
+
+  .cart-side
+  
+  .dishes
+    grid-template-columns: 1fr 1fr 1fr
+
+@media screen and (max-width: 1024px)
+  .catalog-side
+    width: 65%
+    .catalog-wrapper
+      .dishes
+        grid-template-columns: 1fr 1fr
+
+  .cart-side
+    width: 35%
+
+@media screen and (max-width: 768px)
+  .categories-wrapper
+    position: fixed
+    left: 0
+    bottom: 0
+    width: 100%
+    height: 70%
+    margin: 0
+    padding: 0
+    background: #fff
+    z-index: 4
+    overflow: hidden
+    box-shadow: $box-shadow
+    +transition
+    transform: translateY(100%)
+
+    &-mobile-visible
+      transform: translateY(0%)
+
+
+@media screen and (max-width: 576px)
+  .dishes
+    grid-template-columns: 1fr
