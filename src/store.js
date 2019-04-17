@@ -20,13 +20,13 @@ export default new Vuex.Store({
         name: 'Плов Чайханский',
         description: 'Камчатский краб, авокадо, свежие овощи и цитрусовый, Камчатский краб, авокадо, свежие овощи и цитрусовый',
         composition: 'Микс салатов, лосось, соус терияки, соус Унаги',
-        kcal: 650,
-        protein: 34,
-        fats: 60,
-        carbohydrates: 12,
+        kcal: 560,
+        protein: 64,
+        fats: 20,
+        carbohydrates: 15,
         weight: 250, // вес в граммах
         src: require('./assets/img/catalog/plov-chaihanskiy.png'),
-        srcLarge: require('./assets/img/catalog/steik-large.png'),
+        srcLarge: require('./assets/img/catalog/plov-chaihanskiy-large.png'),
         price: 246, // цена в рублях
         category: ['Горячее'],
         inCart: 0
@@ -36,10 +36,10 @@ export default new Vuex.Store({
         name: 'Стейк',
         description: 'Камчатский краб, авокадо, свежие овощи и цитрусовый, Камчатский краб, авокадо, свежие овощи и цитрусовый',
         composition: 'Микс салатов, лосось, соус терияки, соус Унаги',
-        kcal: 650,
-        protein: 34,
-        fats: 60,
-        carbohydrates: 12,
+        kcal: 350,
+        protein: 90,
+        fats: 75,
+        carbohydrates: 22,
         weight: 336, // вес в граммах
         src: require('./assets/img/catalog/steik.png'),
         srcLarge: require('./assets/img/catalog/steik-large.png'),
@@ -52,13 +52,13 @@ export default new Vuex.Store({
         name: 'Шашлык',
         description: 'Стейк из поясничной части мраморной говядины. Рекомендуемая степень прожарки medium',
         composition: 'Микс салатов, лосось, соус терияки, соус Унаги',
-        kcal: 650,
-        protein: 34,
-        fats: 60,
-        carbohydrates: 12,
+        kcal: 900,
+        protein: 60,
+        fats: 90,
+        carbohydrates: 15,
         weight: 250, // вес в граммах
         src: require('./assets/img/catalog/shashlik.png'),
-        srcLarge: require('./assets/img/catalog/steik-large.png'),
+        srcLarge: require('./assets/img/catalog/shashlik-large.png'),
         price: 656, // цена в рублях
         category: ['Гриль', 'Популярные'],
         inCart: 0
@@ -68,9 +68,9 @@ export default new Vuex.Store({
         name: 'Судак',
         description: 'Камчатский краб, авокадо, свежие овощи и цитрусовый, Камчатский краб, авокадо, свежие овощи и цитрусовый',
         composition: 'Микс салатов, лосось, соус терияки, соус Унаги',
-        kcal: 650,
-        protein: 34,
-        fats: 60,
+        kcal: 250,
+        protein: 10,
+        fats: 20,
         carbohydrates: 12,
         weight: 250, // вес в граммах
         src: require('./assets/img/catalog/sudak.png'),
@@ -84,13 +84,13 @@ export default new Vuex.Store({
         name: 'Манты',
         description: 'Камчатский краб, авокадо, свежие овощи и цитрусовый, Камчатский краб, авокадо, свежие овощи и цитрусовый',
         composition: 'Микс салатов, лосось, соус терияки, соус Унаги',
-        kcal: 650,
-        protein: 34,
-        fats: 60,
-        carbohydrates: 12,
+        kcal: 850,
+        protein: 24,
+        fats: 50,
+        carbohydrates: 14,
         weight: 300, // вес в граммах
         src: require('./assets/img/catalog/manti.png'),
-        srcLarge: require('./assets/img/catalog/steik-large.png'),
+        srcLarge: require('./assets/img/catalog/manti-large.png'),
         price: 299, // цена в рублях
         category: ['Выпечка'],
         inCart: 0
@@ -100,13 +100,13 @@ export default new Vuex.Store({
         name: 'Шаверма',
         description: 'Камчатский краб, авокадо, свежие овощи и цитрусовый, Камчатский краб, авокадо, свежие овощи и цитрусовый',
         composition: 'Микс салатов, лосось, соус терияки, соус Унаги',
-        kcal: 650,
-        protein: 34,
-        fats: 60,
-        carbohydrates: 12,
+        kcal: 1000,
+        protein: 45,
+        fats: 43,
+        carbohydrates: 32,
         weight: 300, // вес в граммах
         src: require('./assets/img/catalog/shaverma.png'),
-        srcLarge: require('./assets/img/catalog/steik-large.png'),
+        srcLarge: require('./assets/img/catalog/shaverma-large.png'),
         price: 180, // цена в рублях
         category: [''],
         inCart: 0
@@ -116,13 +116,13 @@ export default new Vuex.Store({
         name: 'Бешбармак',
         description: 'Камчатский краб, авокадо, свежие овощи и цитрусовый, Камчатский краб, авокадо, свежие овощи и цитрусовый',
         composition: 'Микс салатов, лосось, соус терияки, соус Унаги',
-        kcal: 650,
-        protein: 34,
-        fats: 60,
-        carbohydrates: 12,
+        kcal: 670,
+        protein: 43,
+        fats: 65,
+        carbohydrates: 19,
         weight: 220, // вес в граммах
         src: require('./assets/img/catalog/beshbarmak.png'),
-        srcLarge: require('./assets/img/catalog/steik-large.png'),
+        srcLarge: require('./assets/img/catalog/beshbarmak-large.png'),
         price: 446, // цена в рублях
         category: ['', 'Популярные'],
         inCart: 0
@@ -132,13 +132,13 @@ export default new Vuex.Store({
         name: 'Ковурма',
         description: 'Камчатский краб, авокадо, свежие овощи и цитрусовый, Камчатский краб, авокадо, свежие овощи и цитрусовый',
         composition: 'Микс салатов, лосось, соус терияки, соус Унаги',
-        kcal: 650,
+        kcal: 600,
         protein: 34,
-        fats: 60,
-        carbohydrates: 12,
+        fats: 23,
+        carbohydrates: 17,
         weight: 250, // вес в граммах
         src: require('./assets/img/catalog/kovurma.png'),
-        srcLarge: require('./assets/img/catalog/steik-large.png'),
+        srcLarge: require('./assets/img/catalog/kovurma-large.png'),
         price: 246, // цена в рублях
         category: ['Гарниры', 'Популярные'],
         inCart: 0
