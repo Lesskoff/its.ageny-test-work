@@ -1,5 +1,5 @@
 <template>
-  <div class="dishes">
+  <div class="dishes fadeIn fast">
     <div class="dish" v-for="dish of filteredAsCategories" :key="dish.id">
       <div class="dish__adding-to-cart-controllers">
         <button class="dish-btn dish__remove-from-cart" @click="minusFromCart(dish.id)" v-if="dish.inCart > 0"><span>-</span></button>
