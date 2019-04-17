@@ -33,9 +33,16 @@
         <Catalog :activeCategory="activeCategory" :class="{'blur': this.$store.state.styles.overlayVisible}" />
       </div>
     </div>
-    <div class="cart-side" :class="{'blur': this.$store.state.styles.overlayVisible}">
+    <div class="cart-side" :class="{'cart-side-visible': this.$store.state.styles.cartMobileVisible, 'blur': this.$store.state.styles.overlayVisible && !this.$store.state.styles.cartMobileVisible}">
       <Cart />
     </div>
+    <button
+      class="open-cart-btn"
+      v-if="$mq === 'md' || $mq === 'sm'"
+      @click="cartMobileMenuOpen()"
+    >
+      Мой заказ <span>{{filteredInCart.length}}</span>
+    </button>
     <!-- <div class="modal" :class="{'modal-visible': this.$store.state.activeModalDishId >= 0 && this.$store.state.activeModalDishId != null}">
       <Modal :dishId="this.$store.state.activeModalDishId"/>
     </div> -->
@@ -60,6 +67,11 @@ export default {
     categoriesList() {
       return this.$store.state.categories
     },
+    filteredInCart() { // фльтруем и показываем только элементы, которые добавлены в корзину
+      return this.$store.state.dishes.filter(item => {
+        return item.inCart > 0
+      })
+    }
   },
   methods: {
     filteredAsCategories (val) { // вычисляем количество блюд в данной категории
@@ -71,6 +83,11 @@ export default {
       document.querySelector('body').classList.add('overflow-hidden')
       this.$store.state.styles.overlayVisible = true
       this.$store.state.styles.categoriesWrapperMobileVisible = true
+    },
+    cartMobileMenuOpen() {
+      document.querySelector('body').classList.add('overflow-hidden')
+      this.$store.state.styles.overlayVisible = true
+      this.$store.state.styles.cartMobileVisible = true
     },
     closeModalsAndMenu() {
       this.$store.dispatch('closeModalsAndMenu')

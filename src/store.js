@@ -12,6 +12,7 @@ export default new Vuex.Store({
       overlayVisible: false,
       asideVisible: false,
       categoriesWrapperMobileVisible: false,
+      cartMobileVisible: false,
       modalVisible: false
     },
     dishes: [
@@ -206,6 +207,7 @@ export default new Vuex.Store({
       this.state.styles.overlayVisible = false
       this.state.styles.asideVisible = false
       this.state.styles.categoriesWrapperMobileVisible = false
+      this.state.styles.cartMobileVisible = false
       this.state.styles.modalVisible = false
       this.state.activeModalDishId = null
       document.querySelector('body').classList.remove('overflow-hidden')

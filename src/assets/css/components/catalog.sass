@@ -337,7 +337,7 @@
 
   .catalog-side
     width: 100%
-    margin-bottom: 0
+    margin-bottom: 50px
 
     .categories-wrapper
       position: fixed
@@ -358,9 +358,22 @@
         transform: translateY(0%)
 
   .cart-side
-    position: relative
+    position: fixed
+    transform: translateY(100%)
+    +transition
+    top: unset
+    bottom: 0
     width: 100%
+    height: max-content
     min-height: unset
+    box-shadow: $box-shadow
+    z-index: 5
+
+    &.cart-side-visible
+      max-height: 80%
+      overflow-x: hidden
+      overflow-y: auto
+      transform: translateY(0)
 
     .cart
       min-height: 340px
@@ -375,5 +388,16 @@
 @media screen and (max-width: 576px)
   .catalog-side
     .catalog-wrapper
+
+      .catalog__header
+        flex-direction: column
+        align-items: flex-start
+
+        .title-1
+          margin-bottom: 10px
+
+        .sort-by
+          padding: 0
+
       .dishes
         grid-template-columns: 1fr

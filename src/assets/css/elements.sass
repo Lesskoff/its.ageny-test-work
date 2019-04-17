@@ -19,6 +19,7 @@ select.sort-by
   font-family: inherit
   font-size: $font-size-normal
   cursor: pointer
+  background: transparent
   &:focus
     outline: none
 
@@ -42,7 +43,7 @@ select.sort-by
 .categories-btn
   position: fixed
   display: block
-  bottom: 20px
+  bottom: 8px
   right: 20px
   width: 48px
   height: 48px
@@ -110,7 +111,7 @@ select.sort-by
 .cart-btn
   position: relative
   padding: 0
-  background: none
+  background: transparent
   border: none
   cursor: pointer
   color: $font-color-main
@@ -121,6 +122,31 @@ select.sort-by
 
   &:focus
     outline: none
+
+.open-cart-btn
+  position: fixed
+  bottom: 0
+  // left: 50%
+  // transform: translateX(-50%)
+  padding: 0
+  width: 100%
+  height: 65px
+  background: #fff
+  border: none
+  border-top: 1px solid $lines-color
+  cursor: pointer
+  color: $font-color-main
+  font-family: inherit
+  font-size: 15px
+  font-weight: bold
+  +transition
+
+  &:focus
+    outline: none
+
+  span
+    color: $color-accent
+    font-size: 13px
 
 .checkout-btn
   position: relative
