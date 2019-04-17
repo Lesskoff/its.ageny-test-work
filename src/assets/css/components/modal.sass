@@ -26,8 +26,8 @@
       height: 100%
 
       img
-        // height: auto
-        // max-height: 100%
+        height: auto
+        max-height: 100%
 
     .modal-dish__info-section
       width: 30%
@@ -80,6 +80,7 @@
     top: 0
     right: 0
     position: absolute
+    z-index: 4
 
 @media screen and (max-width: 992px)
   .modal
@@ -98,5 +99,9 @@
 
       .modal-dish__image-section
         width: 100%
+
+        img
+          max-height: unset
+
       .modal-dish__info-section
         width: 100%
