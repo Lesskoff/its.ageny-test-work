@@ -8,8 +8,8 @@ self.__precacheManifest = [
     "url": "/robots.txt"
   },
   {
-    "revision": "a99a1caa1dc8ffc3b0d5e54c9e15fa3b",
-    "url": "/fonts/TTNorms-Black.a99a1caa.eot"
+    "revision": "1082eb3bf7be09cb7eea9fd3c057732e",
+    "url": "/fonts/TTNorms-Medium.1082eb3b.ttf"
   },
   {
     "revision": "796b5b9f387a5444718d",
@@ -56,6 +56,10 @@ self.__precacheManifest = [
     "url": "/fonts/TTNorms-Black.5a246f88.woff"
   },
   {
+    "revision": "faff73e68bc9c9a5ff7aae218f486e27",
+    "url": "/fonts/TTNorms-ExtraBold.faff73e6.woff"
+  },
+  {
     "revision": "9a30e8f0dd95fceaa89cf08605ea7236",
     "url": "/fonts/TTNorms-ExtraBoldItalic.9a30e8f0.woff"
   },
@@ -92,10 +96,6 @@ self.__precacheManifest = [
     "url": "/fonts/TTNorms-HeavyItalic.968ac156.woff"
   },
   {
-    "revision": "faff73e68bc9c9a5ff7aae218f486e27",
-    "url": "/fonts/TTNorms-ExtraBold.faff73e6.woff"
-  },
-  {
     "revision": "7695fb097d053793fabf690e505bdf00",
     "url": "/fonts/TTNorms-Bold.7695fb09.eot"
   },
@@ -104,12 +104,12 @@ self.__precacheManifest = [
     "url": "/fonts/TTNorms-Bold.64f8b35b.ttf"
   },
   {
-    "revision": "213cb930a634e1810bc5440f671c5220",
-    "url": "/fonts/TTNorms-Thin.213cb930.ttf"
-  },
-  {
     "revision": "b5f6def0dda90a0e540a5fe011f63192",
     "url": "/fonts/TTNorms-Thin.b5f6def0.eot"
+  },
+  {
+    "revision": "213cb930a634e1810bc5440f671c5220",
+    "url": "/fonts/TTNorms-Thin.213cb930.ttf"
   },
   {
     "revision": "c585352cc2be6277de0cb0adab7cbede",
@@ -144,7 +144,7 @@ self.__precacheManifest = [
     "url": "/fonts/TTNorms-ExtraLight.368a68b6.ttf"
   },
   {
-    "revision": "14b7997de9a880a14ec7",
+    "revision": "1d0e14e2c52a0dd1a4b2",
     "url": "/js/app.81703f14.js"
   },
   {
@@ -152,8 +152,12 @@ self.__precacheManifest = [
     "url": "/js/chunk-vendors.8ae8eb58.js"
   },
   {
-    "revision": "1082eb3bf7be09cb7eea9fd3c057732e",
-    "url": "/fonts/TTNorms-Medium.1082eb3b.ttf"
+    "revision": "a99a1caa1dc8ffc3b0d5e54c9e15fa3b",
+    "url": "/fonts/TTNorms-Black.a99a1caa.eot"
+  },
+  {
+    "revision": "b60f40cea4fa7f81d95785e877c31645",
+    "url": "/fonts/TTNorms-Black.b60f40ce.ttf"
   },
   {
     "revision": "3d7734f61bc614aa3cfcb607b124cbd0",
@@ -168,56 +172,56 @@ self.__precacheManifest = [
     "url": "/fonts/TTNorms-MediumItalic.5600c148.ttf"
   },
   {
+    "revision": "5004356bed245579d153e5c7b48987f7",
+    "url": "/fonts/TTNorms-HeavyItalic.5004356b.ttf"
+  },
+  {
     "revision": "0570c4c971e771c5181fbb13ce9b926b",
     "url": "/fonts/TTNorms-ExtraBold.0570c4c9.eot"
   },
   {
-    "revision": "64fd1cb0c26d604cfc3f71b384d30b97",
-    "url": "/fonts/TTNorms-ExtraBoldItalic.64fd1cb0.ttf"
-  },
-  {
-    "revision": "b60f40cea4fa7f81d95785e877c31645",
-    "url": "/fonts/TTNorms-Black.b60f40ce.ttf"
-  },
-  {
-    "revision": "5004356bed245579d153e5c7b48987f7",
-    "url": "/fonts/TTNorms-HeavyItalic.5004356b.ttf"
+    "revision": "aaeea6a6c907fc502041418b37d5403f",
+    "url": "/fonts/TTNorms-ExtraBold.aaeea6a6.ttf"
   },
   {
     "revision": "46cc55b536b0f4c1f9da11c7b6d23eb6",
     "url": "/fonts/TTNorms-ExtraBoldItalic.46cc55b5.eot"
   },
   {
-    "revision": "d87fbe2abcfcdc82fb44345ef7e4dfa7",
-    "url": "/fonts/TTNorms-ThinItalic.d87fbe2a.ttf"
+    "revision": "64fd1cb0c26d604cfc3f71b384d30b97",
+    "url": "/fonts/TTNorms-ExtraBoldItalic.64fd1cb0.ttf"
   },
   {
     "revision": "893b1e9258fa679d5689e3381eefb5ba",
     "url": "/fonts/TTNorms-ThinItalic.893b1e92.eot"
   },
   {
-    "revision": "5e90ca92faad956c6201ba0a07a43d82",
-    "url": "/fonts/TTNorms-Italic.5e90ca92.ttf"
+    "revision": "d87fbe2abcfcdc82fb44345ef7e4dfa7",
+    "url": "/fonts/TTNorms-ThinItalic.d87fbe2a.ttf"
   },
   {
     "revision": "13e12f04cba5cb33adafa6318b1194c3",
     "url": "/fonts/TTNorms-Italic.13e12f04.eot"
   },
   {
-    "revision": "133e66efa5dd2e4b797144da1cf21fec",
-    "url": "/fonts/TTNorms-LightItalic.133e66ef.eot"
+    "revision": "5e90ca92faad956c6201ba0a07a43d82",
+    "url": "/fonts/TTNorms-Italic.5e90ca92.ttf"
   },
   {
     "revision": "2d2351a0c7b50c89f97dc14a1e3eac14",
     "url": "/fonts/TTNorms-BlackItalic.2d2351a0.ttf"
   },
   {
-    "revision": "63aba23f4f0bf86edd9283f51c5f45a3",
-    "url": "/fonts/TTNorms-ExtraLightItalic.63aba23f.eot"
+    "revision": "cfcc44d4d2ae2bd956fd0c8f3be1c232",
+    "url": "/fonts/TTNorms-BlackItalic.cfcc44d4.eot"
   },
   {
-    "revision": "ae73dc626a3cac6b6c2063b7f8efc64b",
-    "url": "/fonts/TTNorms-BoldItalic.ae73dc62.eot"
+    "revision": "133e66efa5dd2e4b797144da1cf21fec",
+    "url": "/fonts/TTNorms-LightItalic.133e66ef.eot"
+  },
+  {
+    "revision": "63aba23f4f0bf86edd9283f51c5f45a3",
+    "url": "/fonts/TTNorms-ExtraLightItalic.63aba23f.eot"
   },
   {
     "revision": "12dc4f472cdce92a0fcfc9c67c2d8b3c",
@@ -228,24 +232,20 @@ self.__precacheManifest = [
     "url": "/fonts/TTNorms-ExtraLightItalic.441584c1.ttf"
   },
   {
+    "revision": "ae73dc626a3cac6b6c2063b7f8efc64b",
+    "url": "/fonts/TTNorms-BoldItalic.ae73dc62.eot"
+  },
+  {
     "revision": "0d488549dd9652a3bd5afdbd4a8a49f0",
     "url": "/fonts/TTNorms-BoldItalic.0d488549.ttf"
   },
   {
-    "revision": "cfcc44d4d2ae2bd956fd0c8f3be1c232",
-    "url": "/fonts/TTNorms-BlackItalic.cfcc44d4.eot"
-  },
-  {
-    "revision": "aaeea6a6c907fc502041418b37d5403f",
-    "url": "/fonts/TTNorms-ExtraBold.aaeea6a6.ttf"
+    "revision": "9c6c8b4385dda68e50df352369e23efe",
+    "url": "/img/categories-btn.9c6c8b43.svg"
   },
   {
     "revision": "1ff757491ccb4cebebcdfb5cdff373a5",
     "url": "/img/remove-basket.1ff75749.svg"
-  },
-  {
-    "revision": "9c6c8b4385dda68e50df352369e23efe",
-    "url": "/img/categories-btn.9c6c8b43.svg"
   },
   {
     "revision": "e159e0480e1b77696eb47ae7ac1cd346",
@@ -284,11 +284,11 @@ self.__precacheManifest = [
     "url": "/img/manti.26763af6.png"
   },
   {
-    "revision": "48e15952a7085e5a344421525f70e3fa",
+    "revision": "bf4d1e71e8ee3e7ff8287f0c03c2881d",
     "url": "/index.html"
   },
   {
-    "revision": "14b7997de9a880a14ec7",
-    "url": "/css/app.549cd4fc.css"
+    "revision": "1d0e14e2c52a0dd1a4b2",
+    "url": "/css/app.9da81089.css"
   }
 ];
