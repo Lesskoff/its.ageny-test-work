@@ -1,7 +1,7 @@
 <template>
   <section class="catalog">
     <header class="catalog__header">
-      <h1 class="title-1">{{activeCategory}} {{categoriesAppend()}}</h1>
+      <h1 class="title-1 animated fadeIn fast">{{activeCategory}} {{categoriesAppend()}}</h1>
       <select class="sort-by" v-model="currentSort" @change="sortItems(currentSort)">
         <option value="price">По цене</option>
         <option value="name">По названию</option>

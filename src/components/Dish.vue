@@ -11,7 +11,7 @@
         <div class="dish__info-heading">
           <div>
             <span class="title-3 dish__name">{{dish.name}}</span>
-            <span class="dish__weight">{{dish.weight}} г</span>
+            <span class="param-weight dish__weight">{{dish.weight}} г</span>
           </div>
           <span class="title-3 dish__price">{{dish.price}} ₽</span>
         </div>

@@ -1,6 +1,6 @@
 .overlay
   position: fixed
-  top: 0
+  top: -1px
   bottom: 0
   background-color: #212121
   opacity: 0
@@ -153,9 +153,41 @@ select.sort-by
   &:focus
     outline: none
 
+.close-btn
+  width: 40px
+  height: 40px
+  padding: 40px
+  cursor: pointer
+  border: none
+  background-color: transparent
+  +transition
+
+  &:hover
+    background-color: $lines-color
+  &:focus
+    outline: none
+
+  span
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-30%, -55%)
+    font-size: 25px
+
 .addr-icon
   width: 15px
   height: 15px
   background-image: url('./assets/img/icons/location.svg')
   background-repeat: no-repeat
   background-position: center
+
+.param-weight
+  color: $font-color-light
+  font-size: 16px
+
+.modal-naming
+  font-weight: 400
+  font-size: $font-size-small
+  color: darken($font-color-light, 20%)
+
+

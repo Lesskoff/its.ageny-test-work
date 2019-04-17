@@ -7,7 +7,7 @@
   overflow: hidden
   
 .catalog-side
-  width: 80%
+  width: 85%
   margin-bottom: 100px
   box-shadow: inset -1px 0 0 0px $lines-color
 
@@ -88,10 +88,7 @@
             .dish__name
               margin-right: 7px
 
-            .dish__weight
-              color: $font-color-light
-
-            .dish__weight, .dish__price
+            .dish__price
               font-size: 16px
 
           .dish__desctiption
@@ -115,7 +112,7 @@
   position: absolute
   top: 0
   right: 0
-  width: 20%
+  width: 15%
   height: 100%
   min-height: 100vh
   background: #fff
@@ -305,7 +302,7 @@
 
 @media screen and (max-width: 2048px)
   .catalog-side
-    width: 70%
+    width: 75%
     
     .catalog-wrapper
       .dishes
@@ -314,20 +311,15 @@
         .catalog-side
   
   .cart-side
-    width: 30%
+    width: 25%
 
 @media screen and (max-width: 1356px)
   .catalog-side
     .catalog-wrapper
       padding-left: 20px
 
-      .dishes
-        grid-template-columns: 1fr 1fr
-
-  .cart-side
-  
-  .dishes
-    grid-template-columns: 1fr 1fr 1fr
+      // .dishes
+      //   grid-template-columns: 1fr 1fr 1fr
 
 @media screen and (max-width: 1024px)
   .catalog-side
@@ -340,25 +332,48 @@
     width: 35%
 
 @media screen and (max-width: 768px)
-  .categories-wrapper
-    position: fixed
-    left: 0
-    bottom: 0
-    width: 100%
-    height: 70%
-    margin: 0
-    padding: 0
-    background: #fff
-    z-index: 4
-    overflow: hidden
-    box-shadow: $box-shadow
-    +transition
-    transform: translateY(100%)
+  #catalog-page
+    flex-direction: column
 
-    &-mobile-visible
-      transform: translateY(0%)
+  .catalog-side
+    width: 100%
+    margin-bottom: 0
+
+    .categories-wrapper
+      position: fixed
+      left: 0
+      bottom: 0
+      width: 100%
+      height: 70%
+      margin: 0
+      padding: 0
+      background: #fff
+      z-index: 4
+      overflow: hidden
+      box-shadow: $box-shadow
+      +transition
+      transform: translateY(100%)
+
+      &-mobile-visible
+        transform: translateY(0%)
+
+  .cart-side
+    position: relative
+    width: 100%
+    min-height: unset
+
+    .cart
+      min-height: 340px
+      height: auto
+
+      .cart-with-dishes
+        position: relative
+        width: 100%
+        min-height: 340px
 
 
 @media screen and (max-width: 576px)
-  .dishes
-    grid-template-columns: 1fr
+  .catalog-side
+    .catalog-wrapper
+      .dishes
+        grid-template-columns: 1fr
