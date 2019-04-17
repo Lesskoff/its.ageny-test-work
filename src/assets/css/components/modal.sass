@@ -1,107 +1,107 @@
-.modal
-  position: fixed
-  bottom: 0
-  width: 100%
-  height: 0
-  background: #fff
-  box-shadow: $box-shadow
-  z-index: 5
-  visibility: hidden
-  transform: translateY(100%)
-  +transition
-  // transition-delay: .3s
+// .modal
+//   position: fixed
+//   bottom: 0
+//   width: 100%
+//   height: 0
+//   background: #fff
+//   box-shadow: $box-shadow
+//   z-index: 5
+//   visibility: hidden
+//   transform: translateY(100%)
+//   +transition
+//   // transition-delay: .3s
 
-  &.modal-visible
-    height: 80%
-    visibility: visible
-    transform: translateY(0)
+//   &.modal-visible
+//     height: 80%
+//     visibility: visible
+//     transform: translateY(0)
 
-  .modal-dish
-    height: 100%
-    +d-flex-between
+//   .modal-dish
+//     height: 100%
+//     +d-flex-between
 
-    .modal-dish__image-section
-      +d-flex-center
-      width: 70%
-      height: 100%
+//     .modal-dish__image-section
+//       +d-flex-center
+//       width: 70%
+//       height: 100%
 
-      img
-        height: auto
-        max-height: 100%
+//       img
+//         height: auto
+//         max-height: 100%
 
-    .modal-dish__info-section
-      width: 30%
-      height: 100%
-      background: #f7f7f7
+//     .modal-dish__info-section
+//       width: 30%
+//       height: 100%
+//       background: #f7f7f7
 
-      .modal-dish__info
-        padding: 100px 50px 0
+//       .modal-dish__info
+//         padding: 100px 50px 0
 
-        &>div
-          margin-bottom: 40px
-          font-size: $font-size-small
+//         &>div
+//           margin-bottom: 40px
+//           font-size: $font-size-small
 
-        .modal-dish__info__heading
-          animation-delay: .2s
-        .modal-dish__description
-          animation-delay: .4s
-        .modal-dish__composition
-          animation-delay: .6s
-        .modal-dish__nutr-values
-          animation-delay: .8s
+//         .modal-dish__info__heading
+//           animation-delay: .2s
+//         .modal-dish__description
+//           animation-delay: .4s
+//         .modal-dish__composition
+//           animation-delay: .6s
+//         .modal-dish__nutr-values
+//           animation-delay: .8s
 
-        .modal-dish__info__heading
-          +d-flex-between
+//         .modal-dish__info__heading
+//           +d-flex-between
 
-        .modal-naming
-          margin-bottom: 15px
+//         .modal-naming
+//           margin-bottom: 15px
 
-        .modal-dish__weight
-          font-size: $font-size-title-2
+//         .modal-dish__weight
+//           font-size: $font-size-title-2
 
-        .modal-dish__nutr-values__parameters
-          +d-flex-between
+//         .modal-dish__nutr-values__parameters
+//           +d-flex-between
 
-          .modal-dish__nutr-values__param
-            &:nth-child(1)
-              animation-delay: 1s
-            &:nth-child(2)
-              animation-delay: 1.2s
-            &:nth-child(3)
-              animation-delay: 1.4s
-            &:nth-child(4)
-              animation-delay: 1.6s
+//           .modal-dish__nutr-values__param
+//             &:nth-child(1)
+//               animation-delay: 1s
+//             &:nth-child(2)
+//               animation-delay: 1.2s
+//             &:nth-child(3)
+//               animation-delay: 1.4s
+//             &:nth-child(4)
+//               animation-delay: 1.6s
 
-            .modal-dish__nutr-values__name
-              margin-top: 5px
-              font-size: $font-size-smallest
+//             .modal-dish__nutr-values__name
+//               margin-top: 5px
+//               font-size: $font-size-smallest
 
-  .close-btn
-    top: 0
-    right: 0
-    position: absolute
-    z-index: 4
+//   .close-btn
+//     top: 0
+//     right: 0
+//     position: absolute
+//     z-index: 4
 
-@media screen and (max-width: 992px)
-  .modal
-    &.modal-visible
-      overflow: auto
-    .modal-dish
-      .modal-dish__image-section
-        width: 60%
-      .modal-dish__info-section
-        width: 40%
+// @media screen and (max-width: 992px)
+//   .modal
+//     &.modal-visible
+//       overflow: auto
+//     .modal-dish
+//       .modal-dish__image-section
+//         width: 60%
+//       .modal-dish__info-section
+//         width: 40%
 
-@media screen and (max-width: 768px)
-  .modal
-    .modal-dish
-      flex-direction: column
+// @media screen and (max-width: 768px)
+//   .modal
+//     .modal-dish
+//       flex-direction: column
 
-      .modal-dish__image-section
-        width: 100%
+//       .modal-dish__image-section
+//         width: 100%
 
-        img
-          max-height: unset
+//         img
+//           max-height: unset
 
-      .modal-dish__info-section
-        width: 100%
+//       .modal-dish__info-section
+//         width: 100%
